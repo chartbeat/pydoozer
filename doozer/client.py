@@ -227,6 +227,7 @@ class Connection(object):
         """
         try:
             self.ready.wait(timeout=2)
+            # TODO (beaufour): should also have a timeout here
             self.sock.send(packet)
         except IOError, e:
             self._logger.warning('Error sending packet (%s)', e)
